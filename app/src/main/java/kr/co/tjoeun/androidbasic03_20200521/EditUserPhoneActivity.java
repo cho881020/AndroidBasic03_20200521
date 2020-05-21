@@ -3,6 +3,7 @@ package kr.co.tjoeun.androidbasic03_20200521;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,6 +29,13 @@ public class EditUserPhoneActivity extends BaseActivity {
             public void onClick(View v) {
 
                 String inputPhoneNum = binding.phoneNumEdt.getText().toString();
+
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("phone", inputPhoneNum);
+
+                setResult(RESULT_OK, resultIntent);
+
+                finish();
 
             }
         });
