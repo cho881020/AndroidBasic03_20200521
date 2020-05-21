@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import kr.co.tjoeun.androidbasic03_20200521.databinding.ActivityMainBinding;
 
@@ -66,6 +67,18 @@ public class MainActivity extends BaseActivity {
 
                 binding.userNickNameTxt.setText(nick);
 
+            }
+        }
+        else if (requestCode == REQ_FOR_PHONE_NUM) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    String phoneNum = data.getStringExtra("phone");
+
+                    binding.userPhoneTxt.setText(phoneNum);
+                }
+            }
+            else {
+                Toast.makeText(mContext, "전화번호 변경을 취소했습니다.", Toast.LENGTH_SHORT).show();
             }
         }
 
