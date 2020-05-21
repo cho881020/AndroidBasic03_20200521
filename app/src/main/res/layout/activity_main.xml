@@ -103,6 +103,12 @@
 
 <!--        이메일 변경 기능을 직접 만들어보자.-->
 
+        <Button
+            android:id="@+id/callBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="전화 바로 걸어주기"/>
 
     </LinearLayout>
 </layout>

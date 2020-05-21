@@ -30,6 +30,20 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        binding.callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                전화 바로 걸어 주기
+
+                String dialPhoneNum = binding.userPhoneTxt.getText().toString();
+
+                Uri myUri = Uri.parse(String.format("tel:%s", dialPhoneNum));
+                Intent myIntent = new Intent(Intent.ACTION_CALL, myUri);
+                startActivity(myIntent);
+
+            }
+        });
+
         binding.dialBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
