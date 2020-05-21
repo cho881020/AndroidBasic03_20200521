@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -28,6 +29,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        binding.dialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                전화걸기 등 안드로이드 => Uri 정보 요구.
+
+                Uri myUri = Uri.parse("tel:010-5112-3237");
+                Intent myIntent = new Intent(Intent.ACTION_DIAL, myUri);
+                startActivity(myIntent);
+
+            }
+        });
 
         binding.editPhoneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
